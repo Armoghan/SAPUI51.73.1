@@ -1,0 +1,38 @@
+<View height="100%"
+    controllerName="sap.ushell.components.pages.controller.PageRuntime"
+    xmlns="sap.m"
+    xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:lp="sap.ushell.ui.launchpad">
+    <NavContainer id="pagesRuntimeNavContainer">
+        <NavContainer id="pagesNavContainer" pages="{/pages}">
+            <Page data:pageId="{id}" showHeader="false" backgroundDesign="Transparent">
+                <lp:Page sections="{
+                    path: 'sections',
+                    templateShareable: false
+                }">
+                    <lp:Section title="{title}" sizeBehavior="{viewSettings>/sizeBehavior}" visible="{
+                        path: 'visualizations',
+                        formatter: '.formatter._sectionVisibility'
+                    }" visualizations="{
+                        path: 'visualizations',
+                        factory: '._visualizationFactory'
+                    }" />
+                </lp:Page>
+            </Page>
+        </NavContainer>
+        <MessagePage id="errorPage"
+            showHeader="false"
+            icon="{errorPage>/icon}"
+            text="{errorPage>/text}"
+            description="{errorPage>/description}">
+            <buttons>
+                <Button text="{i18n>PageRuntime.CannotLoadPage.DetailsButton}"
+                    visible="{= !!${errorPage>/details} &amp;&amp; !${errorPage>/description}}"
+                    press="._pressViewDetailsButton"/>
+                <Button text="{i18n>PageRuntime.CannotLoadPage.CopyButton}"
+                    visible="{= !!${errorPage>/details} }"
+                    press="._copyToClipboard"/>
+            </buttons>
+        </MessagePage>
+    </NavContainer>
+</View>

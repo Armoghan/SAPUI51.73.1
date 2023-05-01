@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<ColumnListItem type="Active" selected="{selected}" class="sapUiSmallMarginBegin">
+		<cells>
+			<Label wrapping="true" text="{label}" tooltip="{tooltip}"/>
+			<Select id="sortOrderSelect" width="100%" selectedKey="{descending}" change="onChangeOfSortOrder" enabled="{selected}">
+				<items>
+					<core:Item key="false" text="Ascending"/>
+					<core:Item key="true" text="Descending"/>
+				</items>
+			</Select>
+		</cells>
+	</ColumnListItem>
+</core:FragmentDefinition>

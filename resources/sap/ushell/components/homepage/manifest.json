@@ -1,0 +1,20 @@
+{
+    "sap.app": {
+        "id": "sap.ushell.components.homepage",
+        "applicationVersion": {
+            "version": "1.73.1"
+        },
+        "ach": "CA-FLP-FE-COR"
+    },
+    "sap.ui": {
+        "fullWidth": true,
+        "hideLightBackground": true
+    },
+    "sap.ui5": {
+        "dependencies": {
+            "libs": {
+                "sap.m": {}
+            }
+        }
+    }
+}
